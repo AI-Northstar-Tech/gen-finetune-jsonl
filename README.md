@@ -1,7 +1,18 @@
 # gen-finetune-jsonl
 Browser Extension/bookmarklet to quickly generate a finetuning example
 
-Visit https://www.ainorthstartech.com/openai-finetune to drag and drop the link into your Bookmarks Bar.
+Steps to use:
+1. Install the chrome extension or drag bookmarklet from https://www.ainorthstartech.com/openai-finetune onto your Bookmarks Bar.
+
+2. Open platform.openai.com/playground/ and construct your finetuning example.
+3. Click on the extension icon/bookmark
+![Screen Shot 2023-11-14 at 6 28 37 PM](https://github.com/AI-Northstar-Tech/gen-finetune-jsonl/assets/105786647/d20686d1-1c52-4b16-b34d-4216fc5821c2)
+4. A file with the corresponding json lines (.jsonl) content for the finetuning example will be downloaded to your Downloads folder, and copied onto your clipboard.
+![Screen Shot 2023-11-14 at 6 29 06 PM](https://github.com/AI-Northstar-Tech/gen-finetune-jsonl/assets/105786647/6f173d3a-5add-482b-8f74-3e464198776b)
+5. You can combine the examples you want into a single file like this:
+```bash
+python combine-ft-examples.py ~/Downloads
+```
 
 Alternatively, create new bookmark in your browser with the following code as the content:
 ```js
