@@ -1,3 +1,4 @@
 gen-finetune-jsonl.pem
 gen-finetune-jsonl/bookmarklet-code.js
 gen-finetune-jsonl.crx
+.DS_Store
