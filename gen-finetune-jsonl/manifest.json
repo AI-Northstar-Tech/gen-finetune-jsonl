@@ -23,12 +23,11 @@
     "service_worker": "event.js"
   },
   "permissions": [
-    "tabs",
     "scripting",
     "activeTab"
   ],
   "host_permissions": [
-    "<all_urls>"
+    "https://platform.openai.com/playground*"
   ],
   "offline_enabled": false
 }
