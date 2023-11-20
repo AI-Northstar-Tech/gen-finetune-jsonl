@@ -2,7 +2,7 @@
 Browser Extension/bookmarklet to quickly generate a finetuning example
 
 Steps to use:
-1. Install the chrome extension or drag bookmarklet from https://www.ainorthstartech.com/openai-finetune onto your Bookmarks Bar.
+1. Install the chrome extension [here](https://chromewebstore.google.com/u/1/detail/openai-finetune-jsonl-gen/iekhkolcoekpeckkdnpiopnhmmconpoc?hl=en&pli=1), or drag bookmarklet from https://www.ainorthstartech.com/openai-finetune onto your Bookmarks Bar.
 
 2. Open platform.openai.com/playground/ and construct your finetuning example.
 3. Click on the extension icon/bookmark
