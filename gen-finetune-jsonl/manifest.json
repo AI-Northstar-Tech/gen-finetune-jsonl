@@ -22,6 +22,17 @@
   "background": {
     "service_worker": "event.js"
   },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://platform.openai.com/playground*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
   "permissions": [
     "scripting",
     "activeTab"
