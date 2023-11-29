@@ -91,7 +91,7 @@ javascript: (function () {
                             // download formatted content as text file
                             var element = document.createElement('a');
                             element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(formattedContent));
-                            element.setAttribute('download', 'openai-ft-edit-example-'+hash+'.json');
+                            element.setAttribute('download', 'openai-edit-ft-example-'+hash+'.json');
                             element.style.display = 'none';
                             document.body.appendChild(element);
                             element.click();
