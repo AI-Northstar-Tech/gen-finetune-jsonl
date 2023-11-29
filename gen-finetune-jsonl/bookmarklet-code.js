@@ -85,9 +85,11 @@ javascript: (function () {
                             document.body.appendChild(element);
                             element.click();
                             document.body.removeChild(element);
+                            showToast('Finetune example was downloaded and copied to clipboard');
                         })
                         .catch((error) => {
                             console.error('Failed to copy text: ', error);
+                            showToast('Error copying to clipboard');
                         });
                 }
             }, 1000);
