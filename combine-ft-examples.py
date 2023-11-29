@@ -10,6 +10,11 @@ root_folder = os.getcwd()
 if len(sys.argv) > 1:
     root_folder = sys.argv[1]
 
+# accept optional argument for output file name
+output_file_name = "openai-ft-all.txt"
+if len(sys.argv) > 2:
+    output_file_name = sys.argv[2]
+
 # get all files in current directory starting with openai-ft-*
 # handle case if root_folder is ~/ or ~
 read_files = glob.glob(os.path.join(root_folder, "openai-ft-*"))
@@ -18,5 +23,5 @@ read_files = glob.glob(os.path.join(root_folder, "openai-ft-*"))
 file_content = "\n".join([open(f, "r").read() for f in read_files])
 
 # write the file
-with open("openai-ft-all.txt", "w") as f:
+with open(output_file_name, "w") as f:
     f.write(file_content)
