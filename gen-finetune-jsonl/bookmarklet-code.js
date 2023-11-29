@@ -52,19 +52,21 @@ javascript: (function () {
                     var messages = JSON.stringify(jsonPart['messages']);
                     console.log('messages', messages);
                     // formattedContent is a JSON object with a messages array as value for the key "messages"
-                    var formattedContent = JSON.stringify({ "messages": JSON.parse(messages) });
+                    var lineFormattedContent = JSON.stringify({ "messages": JSON.parse(messages) });
                     // minify the JSON
-                    console.log(JSON.parse(formattedContent));
+                    console.log('jsonl', JSON.parse(lineFormattedContent));
+
+                    // store in other variable with proper indentation
+                    var formattedContent = JSON.stringify(JSON.parse(formattedContent), null, 4);
 
                     var textArea = document.createElement('textarea');
-                    textArea.value = formattedContent;
+                    textArea.value = lineFormattedContent;
                     document.body.appendChild(textArea);
                     textArea.select();
                     navigator.clipboard.writeText(textArea.value)
                         .then(() => {
                             console.log('Content copied to clipboard.');
                             document.body.removeChild(textArea);
-                            showToast('Finetune example was copied to clipboard');
                             // Dismiss the modal
                             var closeButton = document.querySelector('.modal-footer button');
                             if (closeButton) closeButton.click();
@@ -74,9 +76,9 @@ javascript: (function () {
                             element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(formattedContent));
                             // create a hash for the filename based on the text
                             var hash = 0, i, chr;
-                            if (formattedContent.length === 0) hash = 1;
-                            for (i = 0; i < formattedContent.length; i++) {
-                                chr = formattedContent.charCodeAt(i);
+                            if (lineFormattedContent.length === 0) hash = 1;
+                            for (i = 0; i < lineFormattedContent.length; i++) {
+                                chr = lineFormattedContent.charCodeAt(i);
                                 hash = ((hash << 5) - hash) + chr;
                                 hash |= 0; // Convert to 32bit integer
                             }
@@ -85,6 +87,16 @@ javascript: (function () {
                             document.body.appendChild(element);
                             element.click();
                             document.body.removeChild(element);
+
+                            // download formatted content as text file
+                            var element = document.createElement('a');
+                            element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(formattedContent));
+                            element.setAttribute('download', 'openai-ft-edit-example-'+hash+'.json');
+                            element.style.display = 'none';
+                            document.body.appendChild(element);
+                            element.click();
+                            document.body.removeChild(element);
+
                             showToast('Finetune example was downloaded and copied to clipboard');
                         })
                         .catch((error) => {
